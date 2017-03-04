@@ -16,6 +16,14 @@
 
 
 	<dependencies>
+
+		<!-- Link backend project -->
+		<dependency>
+		<groupId>net.sports</groupId>
+	<artifactId>ZenSportsBackEnd</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 		<!-- JUnit Dependency -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -41,11 +49,11 @@
 
 		<!-- JSTL dependency -->
 		<dependency>
-		<groupId>jstl</groupId>
-		<artifactId>jstl</artifactId>
-		<version>${jstl.version}</version>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<plugins>
