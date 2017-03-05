@@ -36,5 +36,11 @@ public class ProductsTestCase {
 		
 		assertEquals("Successfully added a product inside the table .",true,productDAO.addProducts(product));
 	}
+	@Test
+	public void testGetProduct()
+	{
+		product=productDAO.getProduct(1);
+		assertEquals("Retrieving data based on id from table","Pillow,Comfortable,Sleep,Travel",product.getProductKeyword());
+	}
 	
 }

@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="${css}/bootstrap.min.css" />
 <link rel="stylesheet" href="${css}/bootstrap-theme.min.css"/>
 <link rel="stylesheet" href="${css}/jquery.dataTables.min.css" />
-<link rel="stylesheet" href="${css}/jquery.dataTables.bootstrap.min.css" />
+<link rel="stylesheet" href="${css}/dataTables.bootstrap.min.css" />
 <link rel="stylesheet" href="${css}/style.css" />
 
 <!-- Scripts -->
@@ -64,6 +64,10 @@
 				<!-- View All Products Page -->
 			<c:if test="${userClickProducts == true }">
 				<%@include file="./products.jsp"%>
+			</c:if>
+				<!-- Product Management Page -->
+			<c:if test="${userClickProductCRUD == true }">
+				<%@include file="./productCRUD.jsp"%>
 			</c:if>
 		</div>
 

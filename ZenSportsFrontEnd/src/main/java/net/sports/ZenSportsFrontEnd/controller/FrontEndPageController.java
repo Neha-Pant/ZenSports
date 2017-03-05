@@ -35,4 +35,5 @@ public class FrontEndPageController {
 		model.addObject("userClickContact",true);
 		return model;
 	}
+	
 }

@@ -14,6 +14,9 @@ $(function(){
 	case 'Products':
 		$('#products').addClass('active');
 		break;
+	case 'ProductCRUD':
+		$('#productcrud').addClass('active');
+		break;
 	default:
 		$('#home').addClass('active');
 		break;

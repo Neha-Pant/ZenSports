@@ -15,6 +15,8 @@
 						class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 				<li id="products"><a href="${contextRoot}/products"><span
 						class="glyphicon glyphicon-list"></span> View All</a></li>
+						<li id="productcrud"><a href="${contextRoot}/productCRUD"><span
+						class="glyphicon glyphicon-list"></span> Product Management</a></li>
 
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="font-size: 8pt">

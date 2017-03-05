@@ -1,13 +1,14 @@
 package net.sports.ZenSportsBackEnd.daoimpl;
 
-import java.util.*;
+import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import net.sports.ZenSportsBackEnd.model.*;
-import net.sports.ZenSportsBackEnd.dao.*;
+
+import net.sports.ZenSportsBackEnd.dao.IProductDAO;
+import net.sports.ZenSportsBackEnd.model.Product;
 
 @Repository("productDAO")
 @Transactional
@@ -30,11 +31,27 @@ public class ProductDAOImpl implements IProductDAO {
 	}
 
 	public Product getProduct(int id) {
-		List<Product> products = new ArrayList<Product>();
-		products = getProducts();
+		return sessionFactory.getCurrentSession().get(Product.class, Integer.valueOf(id));
+	}
 
-		return products.get(id);
+	public boolean updateProduct(Product p) {
+		try {
+			sessionFactory.getCurrentSession().update(p);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
 
+	public boolean deleteProduct(int id) {
+		try {
+			sessionFactory.getCurrentSession().delete(getProduct(id));
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 }

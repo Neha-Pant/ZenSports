@@ -25,4 +25,33 @@ $('#myDataTable').DataTable( {
         }
     ]
 } );
+
+$('#myDataTable1').DataTable( {
+	"lengthMenu": [[1, 3, 5, 7, -1], [1, 3, 5, 7, "All"]],
+	ajax: {
+	        url: '/ZenSportsFrontEnd/product',
+	        dataSrc: ''
+	    },
+    columns: [
+        { data: 'productId' },
+        { data: 'productName' },
+        { data: null,
+        	mRender: function ( data, type, row ) {
+                return '<img src="/ZenSportsFrontEnd/resources/images/'+ row.productImage +'" height="70" width="70">'; }
+        },
+        { data: 'productCategory' },
+        { data: 'productKeyword' },
+        { data: 'productPrice' },
+        { data: 'productQuantity' },
+        {data: null,
+        	mRender: function ( data, type, row ) {
+                return '<a class="btn btn-primary" href="#" height="50px" width="150px">Update Item</a>';}
+        },
+        {data: null,
+        	mRender: function ( data, type, row ) {
+                return '<a class="btn btn-primary" href="#" height="50px" width="150px">Delete Item</a>';}
+        }
+    ]
+} );
+
 });

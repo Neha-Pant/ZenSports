@@ -1,18 +1,32 @@
 package net.sports.ZenSportsBackEnd.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
+	@Size(min=1, max=30)
 	private String productName;
+	@NotBlank
 	private String productCategory;
+	@Size(min=20, max=300)
 	private String productDescription;
+	@NotBlank
 	private String productKeyword;
+	@NotBlank
 	private String productImage;
+	@Range(min=1,max=1000000)
 	private int productPrice;
+	@Range(min=0,max=100)
 	private int productQuantity;
 
 	public Product() {

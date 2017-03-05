@@ -12,6 +12,7 @@
 		<javaee.version>7.0</javaee.version>
 		<spring.version>4.3.6.RELEASE</spring.version>
 		<jstl.version>1.2</jstl.version>
+		 <hibernate.validator.version>5.1.2.Final</hibernate.validator.version>
 	</properties>
 
 
@@ -19,11 +20,11 @@
 
 		<!-- Link backend project -->
 		<dependency>
-		<groupId>net.sports</groupId>
-	<artifactId>ZenSportsBackEnd</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+			<groupId>net.sports</groupId>
+			<artifactId>ZenSportsBackEnd</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
 		<!-- JUnit Dependency -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -54,6 +55,13 @@
 			<version>${jstl.version}</version>
 		</dependency>
 
+	<!-- Hibernate validator dependency -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-validator</artifactId>
+		<version>${hibernate.validator.version}</version>
+	</dependency>
+        
 	</dependencies>
 	<build>
 		<plugins>
