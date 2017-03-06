@@ -1,33 +1,47 @@
 package net.sports.ZenSportsBackEnd.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-public class Product {
+public class Product implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
-	@Size(min=1, max=30)
+	@Size(min=1, max=30,message="product name should be between 1 to 30 characters long")
 	private String productName;
-	@NotBlank
+	@NotBlank(message="product category should not be blank")
 	private String productCategory;
-	@Size(min=20, max=300)
+	@Size(min=20, max=300,message="product description should be between 20-300 characters long")
 	private String productDescription;
-	@NotBlank
+	@NotBlank(message="product keyword should not be blank")
 	private String productKeyword;
-	@NotBlank
 	private String productImage;
-	@Range(min=1,max=1000000)
+	@Range(min=1,max=1000000,message="product price should be between 1-1000000")
 	private int productPrice;
-	@Range(min=0,max=100)
+	@Range(min=0,max=100,message="product quantity should be between 1-100")
 	private int productQuantity;
+	@Transient
+	private MultipartFile file;
+	public MultipartFile getFile()
+	{
+	return file;
+	}
+	public void setFile(MultipartFile file)
+	{
+	this.file=file;
+	}
+
 
 	public Product() {
 		super();
