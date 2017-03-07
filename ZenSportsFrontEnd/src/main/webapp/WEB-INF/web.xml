@@ -12,6 +12,7 @@
 
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
+		<!-- <url-pattern>*.obj</url-pattern> -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 </web-app>

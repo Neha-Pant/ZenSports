@@ -70,9 +70,9 @@
 				<%@include file="./productCRUD.jsp"%>
 			</c:if>
 				<!-- Register Page -->
-			<c:if test="${userClickRegister == true }">
-				<%@include file="./register.jsp"%>
-			</c:if>
+			<!--<c:if test="${userClickRegister == true }">
+				
+			</c:if>-->
 		</div>
 
 		<div class="footer">

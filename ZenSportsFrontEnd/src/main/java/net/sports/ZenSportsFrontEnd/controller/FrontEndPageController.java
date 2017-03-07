@@ -36,12 +36,4 @@ public class FrontEndPageController {
 		return model;
 	}
 	
-	@RequestMapping(value = { "/register" })
-	public ModelAndView register() {
-		ModelAndView model = new ModelAndView("page");
-		model.addObject("title","Register");
-		model.addObject("userClickRegister",true);
-		return model;
-	}
-	
 }

@@ -14,16 +14,16 @@
 					class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 			<li id="products"><a href="${contextRoot}/products"><span
 					class="glyphicon glyphicon-list"></span> View All</a></li>
-			<li class="dropdown">ADMIN
-				<ul>
-					<li id="productcrud"><a href="${contextRoot}/productCRUD"><span
-							class="glyphicon glyphicon-list"></span> Product Management</a></li>
-				</ul>
-			</li>
-
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="/#/"><span
+					class="glyphicon glyphicon-user"></span> ADMIN<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="${contextRoot}/productCRUD"><span
+							class="glyphicon glyphicon-list"></span>Product Management</a></li>
+				</ul></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" style="font-size: 8pt">
-			<li id="register"><a href="${contextRoot}/register"><span
+			<li id="register"><a href="${contextRoot}/memberShip.obj"><span
 					class="glyphicon glyphicon-plus"></span> Register</a></li>
 			<li id="login"><a href="${contextRoot}/login"><span
 					class="glyphicon glyphicon-user"></span> Login</a></li>

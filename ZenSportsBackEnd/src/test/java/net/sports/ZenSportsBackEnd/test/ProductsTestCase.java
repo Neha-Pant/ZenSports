@@ -43,4 +43,23 @@ public class ProductsTestCase {
 		assertEquals("Retrieving data based on id from table","Pillow,Comfortable,Sleep,Travel",product.getProductKeyword());
 	}
 	
+	@Test
+	public void testDeleteProduct()
+	{
+		assertEquals("Deleting product based on id from table",true,productDAO.deleteProduct(20));
+	}
+	
+	@Test
+	public void testUpdateProduct()
+	{
+		product=productDAO.getProduct(7);
+		product.setProductName("Walking SUNGLASSES-Updated");
+		product.setProductCategory("Fitness");
+		product.setProductImage("P7.jpg");
+		product.setProductPrice(200);
+		product.setProductQuantity(5);
+		product.setProductDescription("Made for regular fitness walking in bright sunshine. ");
+		product.setProductKeyword("Fitness,Walking,Sunglass,Blue");
+		assertEquals("Updating user based on id from table",true,productDAO.updateProduct(product));
+	}
 }
