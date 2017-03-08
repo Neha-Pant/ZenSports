@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="form-container col-md-8 jumbotron">
-					<form:form class="form-horizontal" method="POST" modelAttribute="registerModel.user">
+					<form:form class="form-horizontal" method="POST" modelAttribute="user">
 						<h3>Registration Form</h3>
 						<h1>Register</h1>
 

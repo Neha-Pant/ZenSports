@@ -2,11 +2,15 @@ package net.sports.ZenSportsBackEnd.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Address implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -32,13 +36,17 @@ public class Address implements Serializable {
 	private String addCountry;
 	private boolean shipping;
 	
-	private int userId;
-	public int getUserId() {
-		return userId;
+	@ManyToOne(cascade=CascadeType.ALL)
+	private User user;
+	
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
+	
 	public Address() {
 		super();
 		// TODO Auto-generated constructor stub

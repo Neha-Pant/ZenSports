@@ -1,78 +1,88 @@
 package net.sports.ZenSportsFrontEnd.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.BindingResult;
 
 import net.sports.ZenSportsBackEnd.dao.IUserDAO;
 import net.sports.ZenSportsBackEnd.model.Address;
-import net.sports.ZenSportsBackEnd.model.RegisterModel;
 import net.sports.ZenSportsBackEnd.model.User;
 
 @Component
 public class RegisterHandler {
+
+	private User user;
+	private Address billingAddress;
+	private Address shippingAddress;
+
+	public RegisterHandler() {
+		super();
+		user = new User();
+		billingAddress = new Address();
+		shippingAddress = new Address();
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Address getBillingAddress() {
+		return billingAddress;
+	}
+
+	public void setBillingAddress(Address billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+
+	public Address getShippingAddress() {
+		return shippingAddress;
+	}
+
+	public void setShippingAddress(Address shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+
 	@Autowired
 	private IUserDAO userDAO;
 
-	private RegisterModel registerModel;
-
-	public RegisterModel initializeModel() {
-		return new RegisterModel();
-	}
-
-//	public User initializeUser()
-//	{
-//		return new User();
-//	}
-	
-	public String validateUserDetails(User user) {
-		String status = "success";
-		if (user.getUserName().isEmpty()) {
-
-			status = "failure";
+	public String validateUser(@Valid User user, BindingResult result) {
+		String status="success";
+		if (result.hasErrors()) {
+			status="failure";
 		}
-		if (user.getUserFullName().isEmpty()) {
-
-			status = "failure";
-		}
-		if (user.getUserEmail().isEmpty()) {
-			status = "failure";
-		}
-		if (user.getUserMobile().isEmpty()) {
-
-			status = "failure";
-		}
-		if (user.getUserSecurityA().isEmpty()) {
-
-			status = "failure";
-		}
+		// else
+		// {
+		// return "success";
+		// }
 		return status;
 	}
 
-	public String validateAddressDetails(Address address) {
-		String status = "success";
-		if(address.getAddAddress1().isEmpty())
+	public String storeDetail(User user, Address address) {
+		String status="failure";
+		if(user.isEnabled())
 		{
-			status="failure";
-		}
-		if(address.getAddAddress2().isEmpty())
-		{
-			status="failure";
-		}
-		if(address.getAddCity().isEmpty())
-		{
-			status="failure";
-		}
-		if(address.getAddCountry().isEmpty())
-		{
-			status="failure";
-		}
-		if(address.getAddState().isEmpty())
-		{
-			status="failure";
-		}
-		if(address.getAddZipCode().isEmpty())
-		{
-			status="failure";
+			List<Address> list=new ArrayList<Address>();
+			address.setUser(user);
+			list.add(address);
+			user.setAddress(list);
+			boolean result=userDAO.addUser(user);
+			if(result)
+			{
+				status="success";
+			}
+			else
+			{
+				status="failure";
+			}
 		}
 		return status;
 	}

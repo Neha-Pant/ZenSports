@@ -21,20 +21,20 @@ public class AddressTestCase {
 		context.refresh();
 		addressDAO=(IAddressDAO)context.getBean("addressDAO");
 	}
-	@Test
-	public void testAddAddress()
-	{
-		address=new Address();
-		address.setAddAddress1("98-Y");
-		address.setAddAddress2("Vasant Kunj");
-		address.setAddCity("Delhi");
-		address.setAddCountry("India");
-		address.setAddState("Delhi");
-		address.setAddZipCode("110010");
-		address.setUserId(1);
-		
-		assertEquals("Successfully added a address inside the table .",true,addressDAO.addAddress(address));
-	}
+//	@Test
+//	public void testAddAddress()
+//	{
+//		address=new Address();
+//		address.setAddAddress1("98-Y");
+//		address.setAddAddress2("Vasant Kunj");
+//		address.setAddCity("Delhi");
+//		address.setAddCountry("India");
+//		address.setAddState("Delhi");
+//		address.setAddZipCode("110010");
+//		//address.setUserId(1);
+//		
+//		assertEquals("Successfully added a address inside the table .",true,addressDAO.addAddress(address));
+//	}
 	
 //	@Test
 //	public void testUpdateAddress()

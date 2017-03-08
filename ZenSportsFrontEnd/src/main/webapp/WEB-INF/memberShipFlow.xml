@@ -7,40 +7,35 @@
 	<!-- Executed when webFlow is triggered -->
 
 	<on-start>
-		<evaluate expression="registerHandler.initializeModel()" result="flowScope.registerModel" />
+		<evaluate expression="registerHandler.getUser()" result="flowScope.user" />
 	</on-start>
 
-	<view-state id="start" view="registration/register" model="flowScope.registerModel">
-		<transition on="submit" to="validateUser" />
+	<view-state id="start" view="registration/register" model="flowScope.user">
+		<transition on="submit" to="getaddress" />
+		<on-exit>
+			<evaluate expression="registerHandler.getBillingAddress()"
+				result="flowScope.address" />
+		</on-exit>
+	</view-state>
+	<!-- Validating user -->
+	<view-state id="getaddress" view="registration/billing" model="flowScope.address">
+		<transition on="submit" to="bindingAddress" />
 	</view-state>
 
-	<!-- if not specified the first view state is the starting state -->
-
-	<action-state id="validateUser">
-		<evaluate expression="registerHandler.validateUserDetails(registerModel.user)"></evaluate>
-		<transition on="success" to="billing" />
+	<action-state id="bindingAddress">
+		<evaluate expression="registerHandler.storeDetail(user,address)"></evaluate>
+		<transition on="success" to="confirm" />
 		<transition on="failure" to="start" />
 	</action-state>
 
-	<view-state id="billing" view="registration/billing" model="flowScope.registerModel">
-		<transition on="submit" to="validateAddress" />
-	</view-state>
-
-	<action-state id="validateAddress">
-		<evaluate expression="registerHandler.validateAddressDetails(registerModel.address)"></evaluate>
-		<transition on="success" to="confirm" />
-		<transition on="failure" to="billing" />
-	</action-state>
-
-	<view-state id="confirm" view="registration/preRegister" model="flowScope.registerModel">
+	<view-state id="confirm" view="registration/preRegister" model="flowScope.user">
 		<transition on="edit" to="start" />
 		<transition on="submit" to="welcome" />
 	</view-state>
 
 	<end-state id="welcome" view="registration/welcome" />
-	<end-state id="toHome" view="externalRedirect:contextRelative:home.jsp" />
-	<end-state id="toException"
-		view="externalRedirect:contextRelative:exception.jsp" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:/home" />
+	<end-state id="toException"	view="externalRedirect:contextRelative:exception.jsp" />
 
 	<!-- these events are available in every state -->
 	<global-transitions>
