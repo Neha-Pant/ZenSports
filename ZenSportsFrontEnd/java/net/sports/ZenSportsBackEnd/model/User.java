@@ -1,6 +1,5 @@
 package net.sports.ZenSportsBackEnd.model;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,14 +10,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-public class User implements Serializable{
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3286175755443236838L;
+public class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;

@@ -1,20 +1,11 @@
 package net.sports.ZenSportsBackEnd.model;
 
-import java.io.Serializable;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
-public class Address implements Serializable {
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5470478102236229185L;
+public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int addressId;
@@ -31,14 +22,6 @@ public class Address implements Serializable {
 	@Size(min=1, max=30,message="country should be between 1 to 30 characters long")
 	private String addCountry;
 	private boolean shipping;
-	
-	private int userId;
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 	public Address() {
 		super();
 		// TODO Auto-generated constructor stub

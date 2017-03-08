@@ -1,23 +1,15 @@
 package net.sports.ZenSportsBackEnd.model;
 
-import java.io.Serializable;
 
-public class RegisterModel implements Serializable{
-public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1119460130208908635L;
+public class RegisterModel {
 User user;
 Address shipping;
 Address billing;
-public RegisterModel() {
+public RegisterModel(User user, Address shipping, Address billing) {
 	super();
-	this.user =new User();
-	this.shipping = new Address();
-	this.billing = new Address();
+	this.user = user;
+	this.shipping = shipping;
+	this.billing = billing;
 }
 public User getUser() {
 	return user;
@@ -36,5 +28,9 @@ public Address getBilling() {
 }
 public void setBilling(Address billing) {
 	this.billing = billing;
+}
+public RegisterModel() {
+	super();
+	// TODO Auto-generated constructor stub
 }
 }

@@ -1,16 +1,6 @@
 package net.sports.ZenSportsBackEnd.model;
 
-import java.io.Serializable;
-
-public class Category implements Serializable{
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1662627464639306180L;
+public class Category {
 	private int categoryId;
 	private String categoryName;
 	private boolean active = true;

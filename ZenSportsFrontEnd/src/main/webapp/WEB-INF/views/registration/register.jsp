@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <html>
 <head>
 
@@ -20,7 +22,7 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container wrapper">
 
 		<div class="header">
 			<%@include file="navbar.jsp"%>
@@ -30,8 +32,7 @@
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="form-container col-md-8 jumbotron">
-					<form:form class="form-horizontal" action="userData.do"
-						method="POST" commandName="user" modelAttribute="user">
+					<form:form class="form-horizontal" method="POST" modelAttribute="registerModel.user">
 						<h3>Registration Form</h3>
 						<h1>Register</h1>
 

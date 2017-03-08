@@ -23,7 +23,7 @@
 				</ul></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right" style="font-size: 8pt">
-			<li id="register"><a href="${contextRoot}/memberShip.obj"><span
+			<li id="register"><a href="register"><span
 					class="glyphicon glyphicon-plus"></span> Register</a></li>
 			<li id="login"><a href="${contextRoot}/login"><span
 					class="glyphicon glyphicon-user"></span> Login</a></li>

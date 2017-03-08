@@ -15,14 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product implements Serializable{
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4877805677851127409L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
