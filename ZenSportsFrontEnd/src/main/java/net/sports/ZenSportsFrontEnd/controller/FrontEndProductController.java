@@ -21,6 +21,7 @@ import net.sports.ZenSportsBackEnd.dao.IProductDAO;
 import net.sports.ZenSportsBackEnd.model.Product;
 
 @Controller
+
 public class FrontEndProductController {
 	@Autowired
 	private IProductDAO productDAO;
@@ -28,7 +29,7 @@ public class FrontEndProductController {
 	@Autowired
 	private HttpServletRequest request;
 
-	@RequestMapping(value = { "/products" })
+	@RequestMapping(value = { "/user/products" })
 	public ModelAndView about() {
 		ModelAndView model = new ModelAndView("page");
 		model.addObject("title", "Products");
@@ -42,14 +43,14 @@ public class FrontEndProductController {
 		return productDAO.getProducts();
 	}
 
-	@RequestMapping("/showProduct")
+	@RequestMapping("/user/showProduct")
 	public ModelAndView showProduct() {
 		ModelAndView model = new ModelAndView("Products");
 		model.addObject("list", productDAO.getProducts());
 		return model;
 	}
 
-	@RequestMapping("/productCRUD")
+	@RequestMapping("/admin/productCRUD")
 	public ModelAndView productcrud() {
 		ModelAndView model = new ModelAndView("page");
 		model.addObject("title", "Product Management");

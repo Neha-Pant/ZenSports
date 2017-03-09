@@ -50,7 +50,7 @@
             <img src="${images}/${p.productImage}" alt="Image not found" >
               <div class="caption">
                 <h2>${p.productName}</h2>
-                <h2>&#8733; ${p.productPrice}</h2>
+                <h2>&#8377; ${p.productPrice}</h2>
                 <p>${p.productDescription} </p>
                 <p><a href="#" class="btn btn-info btn-xs" role="button">close</a></p>
             </div>

@@ -94,12 +94,12 @@
 							</div>
 						</div>
 
-						<!-- <div class="row">
+						 <div class="row">
 							<div class="form-group">
 								<form:checkbox path="shipping" class="form-control" />
 								Shipping address is same as Billing address
 							</div>
-						</div> -->
+						</div> 
 
 						<div class="row">
 							<div class="form-group">

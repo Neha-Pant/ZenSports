@@ -4,6 +4,7 @@
 			<center>
 				<p>Copyright 2017 © ZenSports.com | All Rights Reserved By
 					Neha@NIIT</p>
+				<img src="${images}/Payment.png"/>
 			</center>
 		</nav>
 	</div>

@@ -12,9 +12,6 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Address implements Serializable {
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 	/**
 	 * 
 	 */
@@ -39,14 +36,12 @@ public class Address implements Serializable {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private User user;
 	
-	
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
 	public Address() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -111,5 +106,9 @@ public class Address implements Serializable {
 	public void setShipping(boolean shipping) {
 		this.shipping = shipping;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 
 }

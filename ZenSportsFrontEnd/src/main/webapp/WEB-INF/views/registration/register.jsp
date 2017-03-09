@@ -62,13 +62,13 @@
 
 						<div class="row">
 							<div class="form-group">
-								<label class="col-md-3 control-lable" for="userRole">Role</label>
-								<form:select path="userRole" type="text" class="form-control">
-									<form:option value="Customer" label="User" selected="true" />
+								<label class="col-md-3 control-lable" for="role">Role</label>
+								<form:select path="role" type="text" class="form-control">
+									<form:option value="User" label="User" selected="true" />
 									<form:option value="Supplier" label="Supplier" />
 								</form:select>
 								<div class="has-error">
-									<form:errors style="color:red" path="userRole"
+									<form:errors style="color:red" path="role"
 										class="help-inline" />
 								</div>
 							</div>
@@ -76,11 +76,11 @@
 
 						<div class="row">
 							<div class="form-group">
-								<label class="col-md-3 control-lable" for="userPassword">Password</label>
-								<form:input path="userPassword" type="password"
+								<label class="col-md-3 control-lable" for="password">Password</label>
+								<form:input path="password" type="password"
 									class="form-control" placeholder="pass@123" />
 								<div class="has-error">
-									<form:errors style="color:red" path="userPassword"
+									<form:errors style="color:red" path="password"
 										class="help-inline" />
 								</div>
 							</div>

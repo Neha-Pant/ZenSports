@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
@@ -17,9 +18,6 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class User implements Serializable{
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 	/**
 	 * 
 	 */
@@ -37,20 +35,32 @@ public class User implements Serializable{
 	public void setUserFullName(String userFullName) {
 		this.userFullName = userFullName;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<Address> address=new ArrayList<>();
-		
+	@OneToOne(cascade=CascadeType.ALL)
+	private Cart cart;
+	
+	
 	public List<Address> getAddress() {
 		return address;
 	}
 	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 	@NotBlank
-	private String userRole;
+	private String role;
 	@Size(min=1, max=30,message="user password should be between 1 to 30 characters long")
-	private String userPassword;
+	private String password;
 	@Size(min=1, max=30,message="user confirm password should be between 1 to 30 characters long")
 	@Transient
 	private String userConPassword;
@@ -70,23 +80,35 @@ public class User implements Serializable{
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	public User(int userId, String userName,String userFullName ,String userRole, String userPassword, String userConPassword,
+	public User(int userId, String userName,String userFullName ,String role, String userPassword, String userConPassword,
 		 String userEmail, String userMobile, String userSecurityQ, String userSecurityA) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.userFullName = userFullName;
-		this.userRole = userRole;
-		this.userPassword = userPassword;
+		this.role = role;
+		this.password = userPassword;
 		this.userConPassword = userConPassword;
 		this.userEmail = userEmail;
 		this.userMobile = userMobile;
 		this.userSecurityQ = userSecurityQ;
 		this.userSecurityA = userSecurityA;
-		this.enabled=false;
+		this.enabled=true;
 	}
 	public User() {
 		super();
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public int getUserId() {
 		return userId;
@@ -100,18 +122,7 @@ public class User implements Serializable{
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getUserRole() {
-		return userRole;
-	}
-	public void setUserRole(String userRole) {
-		this.userRole = userRole;
-	}
-	public String getUserPassword() {
-		return userPassword;
-	}
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
-	}
+
 	public String getUserConPassword() {
 		return userConPassword;
 	}

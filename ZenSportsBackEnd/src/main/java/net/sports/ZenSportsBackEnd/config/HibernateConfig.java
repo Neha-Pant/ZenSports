@@ -24,7 +24,7 @@ public class HibernateConfig {
 	public static final String DATABASE_PASSWORD = "sports";
 
 	// dataSource bean
-	@Bean
+	@Bean(name="dataSource")
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		// Providing the database connection information

@@ -27,9 +27,11 @@
 		</div>
 
 		<div class="content">
+		<form:form modelAttribute="registerModel">
 		<h2>Do you want to continue ?</h2>
-		<a href="welcome" class="btn btn-success btn-lg">Continue</a>
-		<a href="register" class="btn btn-success btn-lg">Back</a>
+		<input type="submit" name="_eventId_submit" class="btn btn-success btn-lg" value="Continue"/>	
+		<input type="submit" name="_eventId_edit" class="btn btn-success btn-lg" value="Back"/>
+		</form:form>
 		</div>
 
 	</div>
