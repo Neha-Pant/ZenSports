@@ -3,12 +3,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="container">
 	<div class="row">
-		<div class="col-md-3"></div>
+		<div class="col-md-3">
+		<form:form enctype="multipart/form-data" action="updateData.do" method="POST"
+					commandName="prod" modelAttribute="prod">
+					
+		<img src="${images}/${prod.productImage}" height="300" width="100%" alt="product image"/>
+		</div>
 		<div class="col-md-6">
 			<div class="form-container">
-				<h3>Product Form</h3>
-				<form:form enctype="multipart/form-data" action="productData.do" method="POST"
-					commandName="product" modelAttribute="product">
+				<h3>Product Update Form</h3>
+				
 
 					<div class="row">
 						<div class="form-group col-md-12">
@@ -90,36 +94,17 @@
 
 					<div class="row">
 						<div class="form-actions floatRight">
-						<input type="submit" name="action" class="btn btn-primary btn-sm" value="Add" />
 						<input type="submit" class="btn btn-primary btn-sm" name="action" value="Update" />
 						</div>
 						
-						<div class="col-md-3"></div>
+					</div>
+					</form:form>
 					</div>
 					</div>
+					
+					<div class="col-md-3"></div>
+					
 					</div>
-					<br>
-					<br />
-					<div class="row">
-						<div class="table-responsive col-md-12">
-
-							<table id="myDataTable1" class="table table-striped">
-								<thead>
-									<tr>
-										<th>Product ID</th>
-										<th>Product Image</th>
-										<th>Product Name</th>
-										<th>Product Category</th>
-										<th>Keywords</th>
-										<th>Price</th>
-										<th>Quantity</th>
-										<th>Edit Product</th>
-										<th>Delete Product</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-							</form:form>
-		<!-- form closure -->
-			</div>
-		</div>
+					</div>
+						
+			

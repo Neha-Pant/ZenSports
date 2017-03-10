@@ -17,7 +17,7 @@ $('#myDataTable').DataTable( {
         { data: 'productPrice' },
         {data: null,
         	mRender: function ( data, type, row ) {
-                return '<a  href="#" role="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#'+row.productId+'">View Item</a>';}
+                return '<a  href="/ZenSportsFrontEnd/user/'+row.productId+'/singleproduct" role="button" class="btn btn-default btn-md" data-toggle="" data-target="#'+row.productId+'">View Item</a>';}
         },
         {data: null,
         	mRender: function ( data, type, row ) {
@@ -45,11 +45,11 @@ $('#myDataTable1').DataTable( {
         { data: 'productQuantity' },
         {data: null,
         	mRender: function ( data, type, row ) {
-                return '<a class="btn btn-primary" href="#" height="50px" width="150px">Update Item</a>';}
+                return '<a class="btn btn-info btn-md" href="/ZenSportsFrontEnd/admin/'+row.productId+'" role="button"><span class="glyphicon glyphicon-pencil"></span></a>';}
         },
         {data: null,
         	mRender: function ( data, type, row ) {
-                return '<a class="btn btn-primary" href="#" height="50px" width="150px">Delete Item</a>';}
+        		return '<a  class="btn btn-warning btn-md" href="/ZenSportsFrontEnd/delete/'+row.productId+'/productD" role="button"><span class="glyphicon glyphicon-trash"></span></a>' ;}               
         }
     ]
 } );

@@ -1,12 +1,14 @@
 package net.sports.ZenSportsBackEnd.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -17,14 +19,18 @@ public class Cart implements Serializable{
 	private static final long serialVersionUID = 7268342053662024973L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	int cartId;
-	int itemCounts;
-	int grandTotal;
-	@OneToOne(cascade=CascadeType.ALL)
-	User user;
+	private int cartId;
+	private int itemCounts;
+	private int grandTotal;
+    @OneToOne(cascade=CascadeType.PERSIST)
+    private User user;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="cart")
+    private List<CartItem> cartItem;
+
+    
 	public Cart() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Cart(int cartId, int itemCounts, int grandTotal) {

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,10 +40,10 @@ public class User implements Serializable{
 		return serialVersionUID;
 	}
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	private List<Address> address=new ArrayList<>();
-	@OneToOne(cascade=CascadeType.ALL)
-	private Cart cart;
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="user")
+    List<Address> address=new ArrayList<>();
+    @OneToOne(cascade=CascadeType.ALL,mappedBy = "user", fetch = FetchType.EAGER)
+    Cart cart;
 	
 	
 	public List<Address> getAddress() {

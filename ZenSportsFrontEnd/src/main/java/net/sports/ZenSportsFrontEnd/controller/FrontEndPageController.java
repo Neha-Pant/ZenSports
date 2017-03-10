@@ -48,4 +48,12 @@ public class FrontEndPageController {
 	return "login";
 	}
 	
+	@RequestMapping(value = { "/payment" })
+	public ModelAndView payment() {
+		ModelAndView model = new ModelAndView("page");
+		model.addObject("title","Payment Page");
+		model.addObject("userClickPayment",true);
+		return model;
+	}
+
 }

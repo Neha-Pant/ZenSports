@@ -18,7 +18,7 @@
 
 <!-- Stylesheets -->
 <link rel="stylesheet" href="${css}/bootstrap.min.css" />
-<link rel="stylesheet" href="${css}/bootstrap-theme.min.css"/>
+<link rel="stylesheet" href="${css}/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="${css}/jquery.dataTables.min.css" />
 <link rel="stylesheet" href="${css}/dataTables.bootstrap.min.css" />
 <link rel="stylesheet" href="${css}/style.css" />
@@ -62,18 +62,33 @@
 			<c:if test="${userClickContact == true }">
 				<%@include file="./contact.jsp"%>
 			</c:if>
-				<!-- View All Products Page -->
+			<!-- View All Products Page -->
 			<c:if test="${userClickProducts == true }">
 				<%@include file="./products.jsp"%>
 			</c:if>
-				<!-- Product Management Page -->
+			<!-- Product Management Page -->
 			<c:if test="${userClickProductCRUD == true }">
 				<%@include file="./productCRUD.jsp"%>
 			</c:if>
-				<!-- Register Page -->
-			<!--<c:if test="${userClickRegister == true }">
-				
-			</c:if>-->
+			<!-- Product Update Page -->
+			<c:if test="${userClickProductCRUDUpdate == true }">
+				<%@include file="./productUpdate.jsp"%>
+			</c:if>
+			<!--Product Details Page -->
+			<c:if test="${userClickProductDetails==true}">
+				<%@include file="productDetails.jsp"%>
+			</c:if>
+
+			<!-- Cart Page -->
+			<c:if test="${userClickCart==true}">
+				<%@include file="cart.jsp"%>
+			</c:if>
+			
+			<!-- Payment Page -->
+			<c:if test="${userClickPayment==true}">
+				<%@include file="payment.jsp"%>
+			</c:if>
+			
 		</div>
 
 		<div class="footer">

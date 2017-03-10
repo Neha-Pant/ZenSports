@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,7 +61,7 @@ public class FrontEndProductController {
 		return model;
 	}
 
-	@RequestMapping(value = "/productData.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/productData.do", method = RequestMethod.POST)
 	public ModelAndView doActions(@ModelAttribute("product") @Valid Product product, BindingResult result,
 			@RequestParam String action) {
 		Product productResult = new Product();
@@ -73,14 +74,16 @@ public class FrontEndProductController {
 
 		switch (action.toLowerCase()) {
 		case "add":
-			if(!(product.getFile().getOriginalFilename().equals("")))
-			{
+			if (!(product.getFile().getOriginalFilename().equals(""))) {
 				product.setProductImage(uploadImage(product.getFile()));
 			}
 			productDAO.addProducts(product);
 			productResult = product;
 			break;
-		case "edit":
+		case "update":
+			if (!(product.getFile().getOriginalFilename().equals(""))) {
+				product.setProductImage(uploadImage(product.getFile()));
+			}
 			productDAO.updateProduct(product);
 			productResult = product;
 			break;
@@ -101,23 +104,65 @@ public class FrontEndProductController {
 		return model1;
 	}
 
-	protected String uploadImage(MultipartFile multipart)
-			{
-			String folderToUpload="/resources/images/";
-			String filename=multipart.getOriginalFilename();
-			String realPath=request.getServletContext().getRealPath(folderToUpload);
-			if(!new File(realPath).exists())
-			{
+	@RequestMapping("/delete/{productId}/productD")
+	public ModelAndView delete(@PathVariable("productId") int id) {
+		ModelAndView model = new ModelAndView("page");
+		productDAO.deleteProduct(id);
+		model.addObject("productList", productDAO.getProducts());
+		model.addObject("product", new Product());
+		model.addObject("title", "Product Management");
+		model.addObject("userClickProductCRUD", true);
+		return model;
+	}
+
+	// update for admin
+	@RequestMapping("/admin/{productId}")
+	public ModelAndView update(@PathVariable("productId") int id) {
+		ModelAndView model = new ModelAndView("page");
+
+		model.addObject("product", productDAO.getProduct(id));
+		// model.addObject("product", new Product());
+		model.addObject("title", "Product Update");
+		model.addObject("userClickProductCRUD", true);
+		return model;
+	}
+
+	@RequestMapping(value = { "/user/{productId}/singleproduct" })
+	public ModelAndView product(@PathVariable("productId") int id) {
+		ModelAndView model = new ModelAndView("page");
+		model.addObject("userClickProductDetails", "true");
+		model.addObject("title", "Product Details");
+		model.addObject("user", "true");
+		model.addObject("product", new Product());
+		model.addObject("prod", productDAO.getProduct(id));
+		return model;
+	}
+	
+	@RequestMapping(value={"/user/{productId}/cart"})
+    public ModelAndView cart(@PathVariable("productId")int id){
+          ModelAndView model =new ModelAndView("page");
+          model.addObject("userClickCart","true");
+          model.addObject("user","true");
+          model.addObject("product",new Product());
+          model.addObject("prod", productDAO.getProduct(id));
+          return model;
+    }
+
+
+	protected String uploadImage(MultipartFile multipart) {
+		String folderToUpload = "/resources/images/";
+		String filename = multipart.getOriginalFilename();
+		String realPath = request.getServletContext().getRealPath(folderToUpload);
+		if (!new File(realPath).exists()) {
 			new File(realPath).mkdirs();
-			}
-			String filePath=realPath+filename;
-			File destination=new File(filePath);
-			try
-			{
+		}
+		String filePath = realPath + filename;
+		File destination = new File(filePath);
+		try {
 			multipart.transferTo(destination);
-			}
-			catch(Exception ex){}
-			return filename;
-			}
+		} catch (Exception ex) {
+		}
+		return filename;
+	}
 
 }

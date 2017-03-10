@@ -34,7 +34,7 @@
 			</div>
 
  <!--Product modal code. -->
- <c:forEach var="p" items="${list}">
+<!--  <c:forEach var="p" items="${list}">
   <div class="modal fade" id="${p.productId}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -61,5 +61,5 @@
     </div>
   </div>
 </div> 
-   </c:forEach>
+   </c:forEach> -->
  <!-- end product modal code. -->

@@ -40,6 +40,7 @@
 			<security:authorize access="isAuthenticated()">
 				<li id="logout"><a href="${contextRoot}/logout">Logout</a></li>
 			</security:authorize>
+				<li id="payment"><a href="${contextRoot}/payment">Payment</a></li>
 		</ul>
 	</div>
 </nav>
