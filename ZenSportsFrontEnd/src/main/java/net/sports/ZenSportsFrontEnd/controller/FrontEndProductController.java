@@ -1,6 +1,7 @@
 package net.sports.ZenSportsFrontEnd.controller;
 
 import java.io.File;
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,8 +19,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.sports.ZenSportsBackEnd.dao.ICartItemDAO;
 import net.sports.ZenSportsBackEnd.dao.IProductDAO;
+import net.sports.ZenSportsBackEnd.dao.IUserDAO;
+import net.sports.ZenSportsBackEnd.model.Cart;
 import net.sports.ZenSportsBackEnd.model.Product;
+import net.sports.ZenSportsBackEnd.model.User;
 
 @Controller
 
@@ -27,6 +32,12 @@ public class FrontEndProductController {
 	@Autowired
 	private IProductDAO productDAO;
 
+	@Autowired
+	private IUserDAO userDAO;
+	
+	@Autowired
+	private ICartItemDAO cartItemDAO;
+	
 	@Autowired
 	private HttpServletRequest request;
 
@@ -138,13 +149,15 @@ public class FrontEndProductController {
 		return model;
 	}
 	
-	@RequestMapping(value={"/user/{productId}/cart"})
-    public ModelAndView cart(@PathVariable("productId")int id){
+	@RequestMapping(value={"/user/cart"})
+    public ModelAndView cart(Principal p){
           ModelAndView model =new ModelAndView("page");
           model.addObject("userClickCart","true");
           model.addObject("user","true");
-          model.addObject("product",new Product());
-          model.addObject("prod", productDAO.getProduct(id));
+          User u=userDAO.getUserByUserName(p.getName());
+          Cart c=u.getCart();
+          model.addObject("prod",cartItemDAO.getAllCartItem(c));
+          //model.addObject("prod", productDAO.getProduct(id));
           return model;
     }
 

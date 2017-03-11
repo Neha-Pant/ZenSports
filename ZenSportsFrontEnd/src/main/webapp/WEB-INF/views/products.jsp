@@ -1,3 +1,4 @@
+<div class="content">
 <div class="row" style="height: 20%">
 					<div class="col-md-12">
 						<div id="custom-search-input">
@@ -31,8 +32,7 @@
 													</table>
 					</div>
 				</div>
-			</div>
-
+</div>
  <!--Product modal code. -->
 <!--  <c:forEach var="p" items="${list}">
   <div class="modal fade" id="${p.productId}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

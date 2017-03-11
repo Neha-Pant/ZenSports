@@ -20,7 +20,7 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="wrapper">
 
 		<div class="header">
 			<%@include file="navbar.jsp"%>
@@ -30,7 +30,8 @@
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="form-container col-md-8 jumbotron">
-					<form:form class="form-horizontal" method="POST" modelAttribute="address">
+					<form:form class="form-horizontal" method="POST"
+						modelAttribute="address">
 						<h3>Billing Address</h3>
 
 						<div class="row">
@@ -93,20 +94,33 @@
 								</div>
 							</div>
 						</div>
+						
+						<div class="row">
+							<div class="form-group">
+								<label class="col-md-3 control-lable" for="addCountry">Country</label>
+								<form:input path="addCountry" type="text" class="form-control"
+									placeholder="India" />
+								<div class="has-error">
+									<form:errors style="color:red" path="addCountry"
+										class="help-inline" />
+								</div>
+							</div>
+						</div>
 
-						 <div class="row">
+						<div class="row">
 							<div class="form-group">
 								<form:checkbox path="shipping" class="form-control" />
 								Shipping address is same as Billing address
 							</div>
-						</div> 
+						</div>
 
 						<div class="row">
 							<div class="form-group">
-								<input type="submit" name="_eventId_submit" value="register" class="btn btn-primary btn-md"/>
+								<input type="submit" name="_eventId_submit" value="register"
+									class="btn btn-primary btn-md" />
 							</div>
 						</div>
-						
+
 					</form:form>
 				</div>
 				<div class="col-md-2"></div>

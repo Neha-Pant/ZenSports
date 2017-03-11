@@ -13,7 +13,7 @@
 					class="glyphicon glyphicon-envelope"></span> Contact Us</a></li>
 
 			<security:authorize access="hasAuthority('User')">
-				<li id="cart"><a href="/#/"><span
+				<li id="cart"><a href="${contextRoot}/user/cart"><span
 						class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 				<li id="products"><a href="${contextRoot}/user/products"><span
 						class="glyphicon glyphicon-list"></span> View All</a></li>

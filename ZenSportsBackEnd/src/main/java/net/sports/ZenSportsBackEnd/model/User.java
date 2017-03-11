@@ -16,8 +16,10 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.stereotype.Component;
 
 @Entity
+@Component
 public class User implements Serializable{
 	/**
 	 * 
@@ -74,7 +76,7 @@ public class User implements Serializable{
 	@Size(min=1, max=30,message="user security answer should be between 1 to 30 characters long")
 	private String userSecurityA;
 	
-	private boolean enabled;
+	private boolean enabled=true;
 	public boolean isEnabled() {
 		return enabled;
 	}

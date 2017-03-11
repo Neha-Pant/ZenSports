@@ -16,5 +16,6 @@ public boolean addUser(User u);
 public boolean addUserAddress(Address address);
 public boolean addUserCart(Cart cart);
 
+public User getUserByUserName(String userName);
 
 }
