@@ -1,6 +1,7 @@
 package net.sports.ZenSportsBackEnd.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class CartModel implements Serializable
 {
@@ -22,7 +23,19 @@ public class CartModel implements Serializable
     }
 
   
+    List<CartItem> cartItem; 
     
+    public List<CartItem> getCartItem() { 
+            return cartItem; 
+    }  
+
+    public void setCartItem(List<CartItem> cartItem) { 
+            this.cartItem = cartItem; 
+    }
+
+
+
+
 
     public static long getSerialversionuid() {
 		return serialVersionUID;

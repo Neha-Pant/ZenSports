@@ -22,6 +22,7 @@ public class CartItemDAOImpl implements ICartItemDAO {
 	public List<CartItem> getAllCartItem(Cart cart) {
 
 		return sessionFactory.getCurrentSession().createQuery("from CartItem where cart=:cart").setParameter("cart",cart).getResultList();
+
 	}
 
 	public CartItem getCartItem(int id) {
@@ -59,9 +60,12 @@ public class CartItemDAOImpl implements ICartItemDAO {
 	}
 
 	@Override
-	public boolean deleteAllCartItem(Cart c) {
+	public boolean deleteAllCartItem(List<CartItem> ci) {
 		try {
-			sessionFactory.getCurrentSession().delete(c.getCartId());
+			for(CartItem i:ci)
+			{
+				sessionFactory.getCurrentSession().delete(i);
+			}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,15 +84,15 @@ public class CartItemDAOImpl implements ICartItemDAO {
 		}
 	}
 
-	@Override
-	public boolean deleteCart(int cid) {
-		try {
-			sessionFactory.getCurrentSession().delete(cid);
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+//	@Override
+//	public boolean deleteCart(int cid) {
+//		try {
+//			sessionFactory.getCurrentSession().delete(cid);
+//			return true;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return false;
+//		}
+//	}
 
 }

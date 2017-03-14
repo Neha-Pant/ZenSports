@@ -84,10 +84,6 @@
 				<%@include file="cart.jsp"%>
 			</c:if>
 			
-			<!-- Payment Page -->
-			<c:if test="${userClickPayment==true}">
-				<%@include file="payment.jsp"%>
-			</c:if>
 			
 		</div>
 

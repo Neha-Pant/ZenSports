@@ -23,7 +23,7 @@ http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
 		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
 		<!-- here the id is mapped to invoke this flow -->
 		<webflow:flow-location id="register" path="/memberShipFlow.xml" />
-		<webflow:flow-location id="user/billing" path="/cartFlow.xml" />
+		<webflow:flow-location id="user/shipping" path="/cartFlow.xml" />
 		
 	</webflow:flow-registry>
 	<webflow:flow-builder-services id="flowBuilderServices"

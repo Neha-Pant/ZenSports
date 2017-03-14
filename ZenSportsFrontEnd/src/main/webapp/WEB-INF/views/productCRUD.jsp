@@ -6,7 +6,8 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<div class="form-container">
-				<h3>Product Form</h3>
+				<center><b><h2>Product Form</h2></b></center>
+				<hr/>
 				<form:form enctype="multipart/form-data" action="productData.do" method="POST"
 					commandName="product" modelAttribute="product">
 
@@ -89,9 +90,9 @@
 					</div>
 
 					<div class="row">
-						<div class="form-actions floatRight">
-						<input type="submit" name="action" class="btn btn-primary btn-sm" value="Add" />
-						<input type="submit" class="btn btn-primary btn-sm" name="action" value="Update" />
+						<div class="form-actions">
+						<center><input type="submit" name="action" class="btn btn-primary btn-md" value="Add" /></center>
+						<!-- <input type="submit" class="btn btn-primary btn-sm" name="action" value="Update" /> -->
 						</div>
 						
 						<div class="col-md-3"></div>

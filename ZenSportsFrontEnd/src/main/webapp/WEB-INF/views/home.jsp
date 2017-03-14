@@ -80,7 +80,7 @@
 	<div class="row" style="height: 50%;">
 		<div class="col-md-12 well">
 			<center><b style="font-size: 20pt">Buy Sports And Fitness Products Online
-				At YenSports.com</b></center><br/>
+				At ZenSports.com</b></center><br/>
 			<p style="font-size: 10pt">A healthy diet isn't enough to
 				maintain a healthy lifestyle. Being fit requires daily workouts and
 				playing games. YenSports offers a wide array of fitness equipment
@@ -90,7 +90,7 @@
 				enthusiasts, there are equipment like dumbbells, ab exercisers,
 				workout accessories and more.</p>
 			<p style="font-size: 10pt">
-				<b>Shop Online for Sports Equipment</b><br /> At YenSports, you will come
+				<b>Shop Online for Sports Equipment</b><br /> At ZenSports, you will come
 				across sports equipment cricket gear that includes cricket bats,
 				balls, pads and a host of other gear including sports accessories.
 				For cycling and adventure sports enthusiasts, there are plenty of
@@ -107,7 +107,7 @@
 			<p style="font-size: 10pt">
 				<b>Set Up Your Own Gym</b><br /> Fitness enthusiasts and those who love to
 				workout could glance through the wide array of gym equipment
-				available at YenSports. The product offerings include a host of
+				available at ZenSports. The product offerings include a host of
 				dumbbells in different shapes and weights, barbells, exercise
 				benches, fitness gadgets, kettle bells, motorized treadmills,
 				resistance tubes, steppers, belts and more. One could browse through
@@ -123,7 +123,7 @@
 				brands offer their products with a manufacturer's warranty. The
 				range of products come at affordable prices as well. To live a
 				healthy lifestyle and stay fit, buy sports equipment online at
-				YenSports.Best online shopping site in India With cash on delivery,
+				ZenSports.Best online shopping site in India With cash on delivery,
 				Free shipping options</p>
 		</div>
 	</div>

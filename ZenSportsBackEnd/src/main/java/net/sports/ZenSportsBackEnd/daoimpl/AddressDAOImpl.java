@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import net.sports.ZenSportsBackEnd.dao.IAddressDAO;
 import net.sports.ZenSportsBackEnd.model.Address;
+import net.sports.ZenSportsBackEnd.model.User;
 
 @Repository("addressDAO")
 @Transactional
@@ -20,7 +21,7 @@ public class AddressDAOImpl implements IAddressDAO
 	@Override
 	public Address getAddress(int id) {
 		return sessionFactory.getCurrentSession().get(Address.class, Integer.valueOf(id));
-	}
+	}	
 	
 	@Override
 	public List<Address> getAllAddress() {
@@ -42,7 +43,7 @@ public class AddressDAOImpl implements IAddressDAO
 	@Override
 	public boolean addAddress(Address a) {
 		try {
-			sessionFactory.getCurrentSession().persist(a);
+			sessionFactory.getCurrentSession().save(a);
 			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -60,5 +61,11 @@ public class AddressDAOImpl implements IAddressDAO
 			return false;
 		}
 	}
+
+	@Override
+	public Address getAddressByUser(User user) {
+		return (Address)sessionFactory.getCurrentSession().createQuery("from Address where user=:user").setParameter("user",user).getResultList().get(0);
+	}
+
 
 }

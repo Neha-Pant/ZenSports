@@ -79,7 +79,7 @@ public class UserDAOImpl implements IUserDAO {
 	@Override
 	public User getUserByUserName(String userName) {
 		String selectUser="from User where userName=:userName";
-		return sessionFactory.getCurrentSession().createQuery(selectUser,User.class).setParameter("userName",userName).getSingleResult();
+		return (User)sessionFactory.getCurrentSession().createQuery(selectUser,User.class).setParameter("userName",userName).getSingleResult();
 	}
 
 }

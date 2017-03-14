@@ -18,11 +18,11 @@ $('#myDataTable').DataTable( {
         {data: null,
         	mRender: function ( data, type, row ) {
                 return '<a  href="/ZenSportsFrontEnd/user/'+row.productId+'/singleproduct" role="button" class="btn btn-default btn-md" data-toggle="" data-target="#'+row.productId+'">View Item</a>';}
-        },
+        }/*,
         {data: null,
         	mRender: function ( data, type, row ) {
                 return '<a class="btn btn-primary" href="'+data+'">Add To Cart</a>';}
-        }
+        }*/
     ]
 } );
 

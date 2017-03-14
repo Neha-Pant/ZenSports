@@ -39,7 +39,7 @@
 					<input type="submit" class="btn btn-default" value="Login"/>
 				</div>
 			</form>
-			<br /> <br /> <a href="#/register"><span
+			<br /> <br /> <a href="register"><span
 				class="glyphicon glyphicon-wrench"></span> Signup</a>
 		</div>
 		<div class="col-md-2"></div>

@@ -1,20 +1,21 @@
 <!-- Product Details -->
 <div class="container content">
 	<form:form modelAttribute="prod" action="${contextRoot}/user/${prod.productId}">
-		<div style="height: 20%"></div>
-		<div class="row well">
+		<div style="height: 10%"></div>
+		<div class="row well table-responsive">
 			<div class="col-md-3">
 				<div id="${prod.productId}"></div>
 				<div>
-					<img src="${images}/${prod.productImage}" height="300" width="200">
+					<img src="${images}/${prod.productImage}" height="400" width="300">
 				</div>
 			</div>
+			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<div class="row">
 					<p>
 					<h1 style="color: blue; font-weight: bold">${prod.productName}</h1>
 					</p>
-				</div>
+				</div><br/>
 				<div class="row">
 					<p>
 					<h4>
@@ -23,23 +24,22 @@
 				</div>
 				<div class="row">
 					<p>
-					<h4>Keywords : ${prod.productKeyword}</h4>
+					<h4><b>Keywords : </b>${prod.productKeyword}</h4>
 					</p>
 				</div>
 				<div class="row">
-					<br />
 					<p>
 					<h4>
-						<b>DESCRIPTION</b><br />${prod.productDescription}</h4>
+						<b>Description : </b>${prod.productDescription}</h4>
 					</p>
-				</div>
+				</div><br/>
 				<div class="row">
 					<p>
 						<b></b>
 					<h4 style="color: red">&#8377 ${prod.productPrice}</h4>
 					</b>
 					</p>
-				</div>
+				</div><br/>
 				<div class="row">
 					<p>
 						<b></b>
@@ -47,7 +47,7 @@
 						.</h4>
 					</b>
 					</p>
-				</div>
+				</div><br/>
 				<div class="row">
 					<select name="quantity" id="quantity">
 						<c:forEach var="i" begin="1" end="${prod.productQuantity}">
@@ -55,7 +55,7 @@
 						</c:forEach>
 					</select>
 
-				</div>
+				</div><br/>
 				<div class="row">
 					<p>
 						<button style="text-size: 30px" class="btn btn-danger btn-md">

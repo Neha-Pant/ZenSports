@@ -13,21 +13,20 @@
 </script>
 <s:url value="/resources/css" var="css" />
 <s:url value="/resources/js" var="js" />
-<s:url value="/resources/jquery" var="jquery" />
+<s:url value="/resources/images" var="images" />
 <!-- Style -->
 <link rel="stylesheet" href="${css}/jquery.dataTables.min.css" />
 <link rel="stylesheet" href="${css}/bootstrap.min.css">
 <link rel="stylesheet" href="${css}/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="${css}/dataTables.bootstrap.min.css" />
-<link rel="stylesheet" href="${css}/health.css">
-<!-- jQuery library -->
-<script src="${jquery}/jquery-3.1.1.min.js"></script>
+<link rel="stylesheet" href="${css}/style.css">
+
+
 <!-- Latest compiled JavaScript -->
 <script type="text/javascript" src="${js}/jquery.js"></script>
 <script type="text/javascript" src="${js}/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="${js}/bootstrap.min.js"></script>
 <script type="text/javascript" src="${js}/datatableScript.js"></script>
-<script type="text/javascript" src="${js}/productcrud.js"></script>
 <script type="text/javascript" src="${js}/dataTables.bootstrap.min.js"></script>
 
 <!-- Self coded js file -->
@@ -44,13 +43,71 @@ body {
 		<div class="header">
 			<%@include file="registration/navbar.jsp"%>
 		</div>
-<div class="content">
-		<form:form modelAttribute="cartModel">
-<input type="submit" value="Confirm" name="_eventId_submit" class="btn btn-danger" /> 
-		</form:form>
-	</div>
-	<div class="footer">
-		<%@include file="./shared/footer.jsp"%>
-	</div>
+		<div class="content">
+			<h1 style="font-size: 60px">ORDER INVOICE</h1>
+			<form:form modelAttribute="cartModel">
+				<div class="row">
+					<div class="col-md-6" style="border: 2px solid crimson;height:150px;spacing:5px;padding:10px">
+						<b><h3>${cartModel.payment.cardName}</h3></b><br /><br/> 
+						${cartModel.payment.email}<br />
+						${cartModel.payment.phone}<br />
+					</div>
+					<div class="col-md-6" style="border: 2px solid crimson;height:150px;spacing:5px;padding:10px">
+						<b><h3>Address :</h3></b>
+						<c:choose>
+							<c:when test="${cartModel.shippingAddress.addAddress1}!=''">   
+
+        ${cartModel.shippingAddress.addAddress1}<br /> 
+        ${cartModel.shippingAddress.addAddress2}<br /> 
+        ${cartModel.shippingAddress.addCity} <br /> 
+        ${cartModel.shippingAddress.addState} - ${cartModel.shippingAddress.addZipCode} <br /> 
+        ${cartModel.shippingAddress.addCountry} 
+        </c:when>
+							<c:otherwise>  
+
+        ${cartModel.billingAddress.addAddress1}<br /> 
+        ${cartModel.billingAddress.addAddress2}<br /> 
+        ${cartModel.billingAddress.addCity} <br /> 
+        ${cartModel.billingAddress.addState} - ${cartModel.billingAddress.addZipCode} <br /> 
+        ${cartModel.billingAddress.addCountry} 
+        </c:otherwise>
+						</c:choose>
+					</div>
+				</div><br/><br/><br/>
+				<div class="row">
+					<div class="col-md-12 table-responsive">
+						<table class="table-striped table-hover table-bordered" style="width:100%">
+							<tr>
+								<th>Product Image</th>
+								<th>Product Name</th>
+								<th>Product Quantity</th>
+								<th>Price</th>
+								<th>Subtotal</th>
+							</tr>
+							<c:forEach items="${cartModel.cartItem}" var="ci">
+								<tr>
+									<td><img src="${images}/${ci.product.productImage}"
+										height="70px" width="70px" /></td>
+									<td>${ci.product.productName}</td>
+									<td>${ci.quantity}</td>
+									<td>&#8377; ${ci.product.productPrice}</td>
+									<td>&#8377; ${ci.totalPrice}</td>
+								</tr>
+							</c:forEach>
+							<tr>
+								<td colspan="4"><h4>Grand Total</h4></td>
+								<th><h4>&#8377; ${cartModel.payment.totalPayment}</h4></th>
+							</tr>
+						</table>
+					</div>
+				</div>
+<br/><br/><br/>
+				<center><input type="submit" value="Confirm" name="_eventId_submit"
+					class="btn btn-lg btn-danger" /></center>
+			</form:form>
+		</div>
+		<div class="footer">
+			<%@include file="./shared/footer.jsp"%>
+		</div>
 </body>
 </html>

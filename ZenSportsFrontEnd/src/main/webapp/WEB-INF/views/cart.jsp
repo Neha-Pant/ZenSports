@@ -1,4 +1,10 @@
-<div class="content">
+<style>
+body
+{
+overflow-x:hidden;
+}
+</style>
+<div class="container content">
  <form:form modelAttribute="prod"> 
   <div class="row">
        <div class="col-md-12" style="height:5%: border-bottom:1px solid black">
@@ -23,10 +29,10 @@
        <td>
           ${p.quantity}
        </td>
-       <td>&#8377; ${p.totalPrice} </td>
+       <td>&#8377; ${p.product.productPrice}</td>
        <c:set var="price" value="${price+p.totalPrice }"/>
-       <td></td>
-       <td><span class="glyphicon glyphicon-remove-sign" style="text-size:30px; color:crimson"></span></div></td>
+       <td>&#8377; ${p.totalPrice}</td>
+       <td><a href="${contextRoot}/user/delete/${p.cartItemId}/cartD"><span class="glyphicon glyphicon-remove-sign" style="text-size:30px; color:crimson"></span></a></td>
        </tr>
        </c:forEach>
   </table>
@@ -41,11 +47,12 @@
   <td>Grand Total</td>
  <td>${price}</td>
   </tr>
+  <br/><br/>
   <tr>
   <td></td>
   <td></td>
   <td><a href="${contextRoot}/user/products" class="btn btn-danger btn-md">Continue Shopping</button> </td>
-  <td><a href="billing" class="btn btn-danger btn-lg">Place Order</button></td>
+  <td><a href="${contextRoot}/user/billing" class="btn btn-danger btn-md">Place Order</button></td>
   </tr>
   </table>
   </div>

@@ -27,8 +27,10 @@ public class CartItem implements Serializable {
     int cartItemId;
     int quantity;
     double totalPrice;
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+   
+    @ManyToOne(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     Cart cart;
+    
     @OneToOne(fetch = FetchType.EAGER)
     Product product;
     public int getCartItemId() {

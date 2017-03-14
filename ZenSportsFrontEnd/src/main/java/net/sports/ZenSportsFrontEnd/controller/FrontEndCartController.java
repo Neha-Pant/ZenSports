@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.sports.ZenSportsBackEnd.dao.IAddressDAO;
 import net.sports.ZenSportsBackEnd.dao.ICartItemDAO;
 import net.sports.ZenSportsBackEnd.dao.IPaymentDAO;
 import net.sports.ZenSportsBackEnd.dao.IProductDAO;
 import net.sports.ZenSportsBackEnd.dao.IUserDAO;
+import net.sports.ZenSportsBackEnd.model.Address;
 import net.sports.ZenSportsBackEnd.model.Cart;
 import net.sports.ZenSportsBackEnd.model.CartItem;
 import net.sports.ZenSportsBackEnd.model.Payment;
@@ -27,6 +29,8 @@ public class FrontEndCartController {
 
 	@Autowired
 	IProductDAO productDAO;
+	@Autowired
+	IAddressDAO addressDAO;
 	@Autowired
 	ICartItemDAO cartItemDAO;
 	@Autowired
@@ -70,9 +74,9 @@ public class FrontEndCartController {
 			ci.setProduct(productDAO.getProduct(id));
 
 			// updating product instance
-//			int i_q = p.getProductQuantity();
-//			int f_q = i_q - quantity;
-//			p.setProductQuantity(f_q);
+			int i_q = p.getProductQuantity();
+			int f_q = i_q - q;
+			p.setProductQuantity(f_q);
 
 			// addding cart item
 			cartItemDAO.addCartItem(ci);
@@ -81,7 +85,7 @@ public class FrontEndCartController {
 			cartItemDAO.updateCart(c);
 
 			// updating product
-//			productDAO.updateProduct(p);
+		productDAO.updateProduct(p);
 
 			model.addObject("title", "Products");
 			model.addObject("userClickProducts", true);
@@ -102,7 +106,34 @@ public class FrontEndCartController {
 		Payment p1=new Payment();
 		p1=p;
 		model.addObject("payment", p1);
+		return model;	
+	}
+	@RequestMapping(value = { "/user/billing" })
+	public ModelAndView payment(@ModelAttribute("billing")Address billing,Principal principal)
+	{
+		ModelAndView model=new ModelAndView("billingCart");
+		User u = userDAO.getUserByUserName(principal.getName());
+		model.addObject("billing",addressDAO.getAddressByUser(u));
 		return model;
 		
 	}
+	
+	@RequestMapping("/user/delete/{cartItemId}/cartD") 
+    public ModelAndView delete(@PathVariable("cartItemId") int id, Principal principal) { 
+                ModelAndView model =new ModelAndView("page"); 
+        
+                User user=userDAO.getUserByUserName(principal.getName()); 
+                
+                cartItemDAO.deleteCartItem(id); 
+                
+                
+                Cart cart=user.getCart(); 
+                model.addObject("userClickCart","true"); 
+                model.addObject("user","true"); 
+                model.addObject("cartItem",new CartItem()); 
+                model.addObject("prod", cartItemDAO.getAllCartItem(cart)); 
+                
+                return model; 
+    }
+
 }

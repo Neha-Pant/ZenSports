@@ -22,6 +22,7 @@ public class Cart implements Serializable{
 	private int cartId;
 	private int itemCounts;
 	private int grandTotal;
+	
     @OneToOne(cascade=CascadeType.PERSIST)
     private User user;
     

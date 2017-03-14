@@ -4,9 +4,9 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow 
       http://www.springframework.org/schema/webflow/spring-webflow.xsd">
       
-      <var name="billing" class="net.sports.ZenSportsFrontEnd.model.Address"/>
-      <var name="shipping" class="net.sports.ZenSportsFrontEnd.model.Address"/>
-       <var name="cartitem" class="net.sports.ZenSportsFrontEnd.model.CartItem"/>
+      <var name="billing" class="net.sports.ZenSportsBackEnd.model.Address"/>
+      <var name="ship" class="net.sports.ZenSportsBackEnd.model.Address"/>
+       <var name="payment" class="net.sports.ZenSportsBackEnd.model.Payment"/>
      
 <!-- Executed when webFlow is triggered -->
        <on-start>
@@ -14,20 +14,11 @@
        <evaluate expression="cartHandler.initializeModel()" result="flowScope.cartModel"/>
        </on-start>
 
-       
-       <view-state id="start" view="billingCart" model="billing">
-          <transition on="submit" to="shippingAddress"/>
-          <on-exit>
-                    <evaluate expression="cartHandler.saveBillingAddress(cartModel,billing)"></evaluate>
-             </on-exit>  
-       </view-state>
-       
-       
        <!-- User enters Billing Address -->
-       <view-state id="shippingAddress" view="shippingCart" model="shipping">
-          <transition on="submit" to="pay"/>
+       <view-state id="start" view="shippingCart" model="ship">
+          <transition on="submit" to="pay" validate="false"/>
           <on-exit>
-                    <evaluate expression="cartHandler.saveShippingAddress(cartModel,shipping)"></evaluate>
+                    <evaluate expression="cartHandler.saveShippingAddress(cartModel,ship)"></evaluate>
              </on-exit>
        </view-state>
        
@@ -41,9 +32,7 @@
        
        <!-- User view order payment -->
        <view-state id="invoice" view="invoice" model="flowScope.cartModel">
-       
              <transition on="submit" to="storedetail" />
-          
        </view-state>
        
        <action-state id="storedetail"> 
@@ -53,7 +42,7 @@
        </action-state>     
        
 <end-state id="welcome" view="toHome" />      
-       <end-state id="toHome" view="externalRedirect:contextRelative:/cartview" />
+       <end-state id="toHome" view="externalRedirect:contextRelative:/home" />
        <end-state id="toException" view="externalRedirect:contextRelative:exception.jsp" />
 
        <!-- these events are available in every state-->

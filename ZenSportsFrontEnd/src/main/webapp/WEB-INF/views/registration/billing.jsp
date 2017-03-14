@@ -109,13 +109,6 @@
 
 						<div class="row">
 							<div class="form-group">
-								<form:checkbox path="shipping" class="form-control" />
-								Shipping address is same as Billing address
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="form-group">
 								<input type="submit" name="_eventId_submit" value="register"
 									class="btn btn-primary btn-md" />
 							</div>

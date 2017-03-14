@@ -1,19 +1,12 @@
-<div class="content">
+<style>
+body
+{
+overflow-x:hidden;
+}
+</style>
+<div class="content container">
 <div class="row" style="height: 20%">
-					<div class="col-md-12">
-						<div id="custom-search-input">
-							<div class="input-group col-md-12">
-								<input type="text" class="  search-query form-control"
-									placeholder="Search" /> <span class="input-group-btn">
-									<button class="btn btn-danger" type="button">
-										<span class=" glyphicon glyphicon-search"></span>
-									</button>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
+					
 				<div class="row jumbotron" style="height: 70%">
 					<div class="col-md-12">
 						<table id="myDataTable" class="table table-striped">
@@ -26,7 +19,7 @@
 									<th>Keywords</th>
 									<th>Price</th>
 									<th>View Product</th>
-									<th>Add to Cart</th>
+									<!-- <th>Add to Cart</th> -->
 								</tr>
 							</thead>
 													</table>
