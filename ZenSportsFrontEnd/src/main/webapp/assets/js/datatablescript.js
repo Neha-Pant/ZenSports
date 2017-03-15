@@ -14,7 +14,14 @@ $('#myDataTable').DataTable( {
         },
         { data: 'productCategory' },
         { data: 'productKeyword' },
-        { data: 'productPrice' },
+        { "data": "",
+        	"render":function(data,type,row)
+        	{
+        	 return "&#8377; "+row.productPrice+"";
+          }  
+          
+          },
+
         {data: null,
         	mRender: function ( data, type, row ) {
                 return '<a  href="/ZenSportsFrontEnd/user/'+row.productId+'/singleproduct" role="button" class="btn btn-default btn-md" data-toggle="" data-target="#'+row.productId+'">View Item</a>';}
@@ -41,7 +48,13 @@ $('#myDataTable1').DataTable( {
         },
         { data: 'productCategory' },
         { data: 'productKeyword' },
-        { data: 'productPrice' },
+        { "data": "",
+        	"render":function(data,type,row)
+        	{
+        	 return "&#8377; "+row.productPrice+"";
+          }  
+          
+          },
         { data: 'productQuantity' },
         {data: null,
         	mRender: function ( data, type, row ) {

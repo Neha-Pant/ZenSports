@@ -17,7 +17,7 @@
 			/> -->
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" default-target-url="/"
-			authentication-failure-url="/login?error" />
+			 authentication-failure-url="/login?error" />
 		<logout logout-success-url="/" />
 		<csrf disabled="true" />
 		<!--this is to avoid redirecting to other websites (cross site request 

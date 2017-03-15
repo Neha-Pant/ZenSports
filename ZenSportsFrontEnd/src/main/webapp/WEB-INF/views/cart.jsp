@@ -8,9 +8,10 @@ overflow-x:hidden;
  <form:form modelAttribute="prod"> 
   <div class="row">
        <div class="col-md-12" style="height:5%: border-bottom:1px solid black">
-             <h2>Shopping Cart <span>(<!-- ${cart.itemCount} --> Item(s))</span></h2>
+             <center><h2 style="color:crimson">Shopping Cart</h2></center>
        </div>       
   </div>
+  <br/>
   <div class="row">
   <div class="col-md-12">
   <table class="table table-responsive table-sripped">
@@ -44,15 +45,15 @@ overflow-x:hidden;
   <tr>
    <td></td>
   <td></td>
-  <td>Grand Total</td>
- <td>${price}</td>
+  <th>Grand Total</th>
+ <td>&#8377; ${price}</td>
   </tr>
   <br/><br/>
   <tr>
   <td></td>
   <td></td>
-  <td><a href="${contextRoot}/user/products" class="btn btn-danger btn-md">Continue Shopping</button> </td>
-  <td><a href="${contextRoot}/user/billing" class="btn btn-danger btn-md">Place Order</button></td>
+  <td><a href="${contextRoot}/user/products" class="btn btn-primary btn-md">Continue Shopping</button> </td>
+  <td><a href="${contextRoot}/user/billing" class="btn btn-success btn-md">Place Order</button></td>
   </tr>
   </table>
   </div>

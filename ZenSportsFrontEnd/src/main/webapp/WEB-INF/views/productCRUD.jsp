@@ -10,7 +10,9 @@
 				<hr/>
 				<form:form enctype="multipart/form-data" action="productData.do" method="POST"
 					commandName="product" modelAttribute="product">
-
+					
+					<form:hidden path="productId"/>
+					
 					<div class="row">
 						<div class="form-group col-md-12">
 							<label class="col-md-3 control-lable" for="productName">Product
@@ -91,8 +93,10 @@
 
 					<div class="row">
 						<div class="form-actions">
-						<center><input type="submit" name="action" class="btn btn-primary btn-md" value="Add" /></center>
-						<!-- <input type="submit" class="btn btn-primary btn-sm" name="action" value="Update" /> -->
+						<center>
+						<c:if test="${product.productId==0}"><input type="submit" name="action" class="btn btn-primary btn-md" value="Add" /></c:if>
+						<c:if test="${product.productId!=0}"><input type="submit" class="btn btn-primary btn-sm" name="action" value="Update" /></c:if>
+						</center> 
 						</div>
 						
 						<div class="col-md-3"></div>

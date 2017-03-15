@@ -47,28 +47,25 @@ body {
 			<h1 style="font-size: 60px">ORDER INVOICE</h1>
 			<form:form modelAttribute="cartModel">
 				<div class="row">
-					<div class="col-md-6" style="border: 2px solid crimson;height:150px;spacing:5px;padding:10px">
+					<div class="col-md-6" style="border: 2px solid blue;height:150px;spacing:5px;padding:10px">
 						<b><h3>${cartModel.payment.cardName}</h3></b><br /><br/> 
 						${cartModel.payment.email}<br />
 						${cartModel.payment.phone}<br />
 					</div>
-					<div class="col-md-6" style="border: 2px solid crimson;height:150px;spacing:5px;padding:10px">
+					<div class="col-md-6" style="border: 2px solid blue;height:150px;spacing:5px;padding:5px">
 						<b><h3>Address :</h3></b>
 						<c:choose>
 							<c:when test="${cartModel.shippingAddress.addAddress1}!=''">   
-
         ${cartModel.shippingAddress.addAddress1}<br /> 
         ${cartModel.shippingAddress.addAddress2}<br /> 
-        ${cartModel.shippingAddress.addCity} <br /> 
-        ${cartModel.shippingAddress.addState} - ${cartModel.shippingAddress.addZipCode} <br /> 
+        ${cartModel.shippingAddress.addCity} - ${cartModel.shippingAddress.addZipCode} <br /> 
         ${cartModel.shippingAddress.addCountry} 
         </c:when>
 							<c:otherwise>  
 
         ${cartModel.billingAddress.addAddress1}<br /> 
         ${cartModel.billingAddress.addAddress2}<br /> 
-        ${cartModel.billingAddress.addCity} <br /> 
-        ${cartModel.billingAddress.addState} - ${cartModel.billingAddress.addZipCode} <br /> 
+        ${cartModel.billingAddress.addCity} - ${cartModel.billingAddress.addZipCode} <br /> 
         ${cartModel.billingAddress.addCountry} 
         </c:otherwise>
 						</c:choose>

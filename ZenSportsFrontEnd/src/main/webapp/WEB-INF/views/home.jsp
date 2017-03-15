@@ -60,15 +60,15 @@
 
 	<div class="row" style="height: 30%;">
 		<div class="col-md-4">
-			<a href="#"><img src="${images}/home_gym.jpg"
+			<a href="${contextRoot}/user/products"><img src="${images}/home_gym.jpg"
 				style="width: 100%; height: 100%; border-radius: 10px;"></a>
 		</div>
 		<div class="col-md-4">
-			<a href="#"><img src="${images}/home_shoes.jpg"
+			<a href="${contextRoot}/user/products"><img src="${images}/home_shoes.jpg"
 				style="width: 100%; height: 100%; border-radius: 10px;"></a>
 		</div>
 		<div class="col-md-4">
-			<a href="#"><img src="${images}/home-Badminton.jpg"
+			<a href="${contextRoot}/user/products"><img src="${images}/home-Badminton.jpg"
 				style="width: 100%; height: 100%; border-radius: 10px;"></a>
 		</div>
 	</div>

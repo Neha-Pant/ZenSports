@@ -47,9 +47,9 @@ body {
 				<div class="col-md-3"></div>
 				<form:form modelAttribute="billing">
 					<div class="col-md-7">
-						<div style="font-size: 60px; color: crimson;text-align:center;text-decoration:underline;">Billing
+						<div style="font-size: 60px; color: black;text-align:center;text-decoration:underline;">Billing
 							Address</div>
-						<div style="border: 2px solid crimson;text-align:center;border-radius:15px;">
+						<div style="border: 2px solid grey;text-align:center;border-radius:15px;">
 							<div><h3>${billing.addAddress1}</h3></div>
 							<div><h3>${billing.addAddress2}</h3></div>
 							<div><h3>${billing.addCity}</h3></div>
